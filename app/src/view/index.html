@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card-header">
+            <div class="row justify-content-center bg-dark text-white">
+                <h1>Quản lý nhân viên</h1>
+            </div>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputId">Mã nhân viên</label>
+                <input type="manv" class="form-control" id="manv" aria-describedby="" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName">Tên nhân viên</label>
+                <input type="name" class="form-control" id="name" placeholder="">
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <select class="form-control" id="chucvu">
+                        <option value="1">Nhân viên</option>
+                        <option value="2">Quản lý</option>
+                        <option value="3">Giám đốc</option>
+                    </select>
+                </div>
+
+                <span class="sp-thongbao" id="tbChucVu"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMoney">Lương cơ bản</label>
+                <input type="money" class="form-control" id="money" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTime">Số giờ làm trong tháng</label>
+                <input type="timeWork" class="form-control" id="timeWork" placeholder="">
+            </div>
+            <div class="bg-light">
+                <div class="p-3 text-right">
+                    <button type="submit" class="btn btn-primary bg-light text-success border-success">Thêm nhân
+                        viên</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="pt-3">
+            <table class="table table-bordered table-hover myTable">
+                <thead class="text-white bg-info">
+                    <tr>
+                        <th class="nowrap">
+                            <span class="mr-1">Mã nhân viên</span>
+                            <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                            <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                        </th>
+                        <th>Tên nhân viên</th>
+                        <th>Chức vụ</th>
+                        <th>Lương cơ bản</th>
+                        <th>Tổng lương</th>
+                        <th>Giờ làm/tháng</th>
+                        <th>Xếp loại nhân viên</th>
+                        <th><em class="fa fa-cog"></em></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
