@@ -36,12 +36,7 @@ function renderData(data) {
   });
   getEle("tableDanhSach").innerHTML = content;
 }
-/**
- * Rest Form
- */
-function ResetForm() {
-  getEle("formNhanVien").reset();
-}
+
 /**
  * Delete Personnel
  */
@@ -58,6 +53,14 @@ function deletePers(maNhanVien) {
  * Add Personnel
  */
 function addPers() {
+  var maNV = getEle("manv").value;
+  var name = getEle("name").value;
+  var chucVu = getEle("chucVu").value;
+  var heS0ChucVu = "";
+  var money = getEle("money").value;
+  var timeWork = getEle("timeWork").value;
+  console.log(maNV, name, chucVu, heS0ChucVu, money, timeWork);
+  var nhanvien = new NhanVien(maNV, name, chucVu, heS0ChucVu, money, timeWork);
   CallAPI.addPersonnel(nhanvien)
     .then(function () {
       console.log(nhanvien);
@@ -66,14 +69,13 @@ function addPers() {
     .catch(function (error) {
       console.log(error);
     });
-  ResetForm();
 }
 
 function editPer(maNhanVien) {
   CallAPI.editPersonnel(maNhanVien)
     .then(function (result) {
       var nhanvien = result.data;
-      console.log(nhanvien);
+
       getEle("manv").value = nhanvien.maNhanVien;
       getEle("name").value = nhanvien.tenNhanVien;
       getEle("chucVu").value = nhanvien.chucVu;
@@ -84,4 +86,5 @@ function editPer(maNhanVien) {
     .catch(function (error) {
       console.log(error);
     });
+  1;
 }
