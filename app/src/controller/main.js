@@ -58,19 +58,6 @@ function deletePers(maNhanVien) {
  * Add Personnel
  */
 function addPers() {
-  var maNV = getEle("manv").value;
-  var name = getEle("name").value;
-  var chucVu = getEle("chucVu").value;
-  var heSoChuc = getEle("chucVu").value;
-  var money = getEle("money").value;
-  var timeWork = getEle("timeWork").value;
-
-  /**
-   *
-   */
-
-  console.log(maNV, name, chucVu, heSoChuc, money, timeWork);
-  var nhanvien = new NhanVien(maNV, name, chucVu, heSoChuc, money, timeWork);
   CallAPI.addPersonnel(nhanvien)
     .then(function () {
       console.log(nhanvien);
@@ -86,6 +73,7 @@ function editPer(maNhanVien) {
   CallAPI.editPersonnel(maNhanVien)
     .then(function (result) {
       var nhanvien = result.data;
+      console.log(nhanvien);
       getEle("manv").value = nhanvien.maNhanVien;
       getEle("name").value = nhanvien.tenNhanVien;
       getEle("chucVu").value = nhanvien.chucVu;
