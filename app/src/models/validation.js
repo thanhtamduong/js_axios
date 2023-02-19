@@ -6,6 +6,7 @@ var tbName = getEle("tbTenNhanVien");
 var tbChucVu = getEle("tbChucVu");
 var tbMoney = getEle("tbLuongCoBan");
 var tbTimeWork = getEle("tbSoGioLam");
+
 /**
  *
  *
@@ -43,7 +44,7 @@ function validName() {
  */
 function validMoney() {
   var moneyPer = getEle("money").value;
-  if (moneyPer.length <= 1000000 || moneyPer.length >= 20000000) {
+  if (moneyPer < 1000000 || moneyPer > 20000000) {
     tbMoney.innerHTML = "Vui lòng kiểm tra!";
     return false;
   }
