@@ -10,6 +10,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../assets/style.css">
+
 </head>
 
 <body>
@@ -19,37 +23,45 @@
                 <h1>Quản lý nhân viên</h1>
             </div>
         </div>
-        <form>
+        <form id="formNhanVien">
             <div class="form-group">
                 <label for="exampleInputId">Mã nhân viên</label>
                 <input type="manv" class="form-control" id="manv" aria-describedby="" placeholder="">
             </div>
+            <span class="sp-thongbao" id="tbMaNhanVien"></span>
+
             <div class="form-group">
                 <label for="exampleInputName">Tên nhân viên</label>
                 <input type="name" class="form-control" id="name" placeholder="">
+                <span class="sp-thongbao" id="tbTenNhanVien"></span>
             </div>
+
             <div class="form-group">
                 <div class="input-group">
-                    <select class="form-control" id="chucvu">
-                        <option value="1">Nhân viên</option>
-                        <option value="2">Quản lý</option>
-                        <option value="3">Giám đốc</option>
+                    <select class="form-control" id="chucVu">
+                        <option>Nhân viên</option>
+                        <option>Quản lý</option>
+                        <option>Giám đốc</option>
                     </select>
+                    <span class="sp-thongbao" id="tbChucVu"></span>
                 </div>
 
-                <span class="sp-thongbao" id="tbChucVu"></span>
             </div>
             <div class="form-group">
                 <label for="exampleInputMoney">Lương cơ bản</label>
                 <input type="money" class="form-control" id="money" placeholder="">
+                <span class="sp-thongbao" id="tbLuongCoBan"></span>
             </div>
             <div class="form-group">
                 <label for="exampleInputTime">Số giờ làm trong tháng</label>
                 <input type="timeWork" class="form-control" id="timeWork" placeholder="">
+                <span class="sp-thongbao" id="tbSoGioLam"></span>
             </div>
             <div class="bg-light">
                 <div class="p-3 text-right">
-                    <button type="submit" class="btn btn-primary bg-light text-success border-success">Thêm nhân
+                    <button id="btnAdd" onclick="addPers()" type="button"
+                        class="btn btn-primary bg-light text-success border-success">Thêm
+                        nhân
                         viên</button>
                 </div>
             </div>
@@ -61,8 +73,8 @@
                     <tr>
                         <th class="nowrap">
                             <span class="mr-1">Mã nhân viên</span>
-                            <i class="fa fa-arrow-up" id="SapXepTang"></i>
-                            <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                            <!-- <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                            <i class="fa fa-arrow-down" id="SapXepGiam"></i> -->
                         </th>
                         <th>Tên nhân viên</th>
                         <th>Chức vụ</th>
@@ -73,6 +85,24 @@
                         <th><em class="fa fa-cog"></em></th>
                     </tr>
                 </thead>
+                <div class="table__content">
+                    <div id="loader" class=" loader"></div>
+                    <tbody id="tableDanhSach" onclick="editPer()">
+
+                        <!-- <tr>
+                        <td>${}</td>
+                        <td>${}</td>
+                        <td>${}</td>
+                        <td>${}</td>
+                        <td>${}</td>
+                        <td>${}</td>
+                        <td>${}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteNV('${nv.maNV}')">Delete</button>
+                        </td>
+                    </tr> -->
+                    </tbody>
+                </div>
             </table>
         </div>
     </div>
@@ -94,6 +124,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js"
+        integrity="sha512-wS6VWtjvRcylhyoArkahZUkzZFeKB7ch/MHukprGSh1XIidNvHG1rxPhyFnL73M0FC1YXPIXLRDAoOyRJNni/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../models/validation.js"></script>
+
+    <!-- <script>
+        Validation({
+            form: '#formNhanVien',
+            rules: [
+                Validation.isCheckId('#manv'),
+            ]
+        })
+    </script> -->
+
+    <script src="../models/nhanvien.js"></script>
+    <script src="../services/callApi.js"></script>
+    <script src="../controller/main.js"></script>
 </body>
 
 </html>
